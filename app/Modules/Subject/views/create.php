@@ -4,185 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title) ?> - Navigator App</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .header {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        
-        .header h1 {
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .breadcrumb {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .breadcrumb a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 30px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        .form-group label.required::after {
-            content: " *";
-            color: #e74c3c;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-        
-        .form-control.error {
-            border-color: #e74c3c;
-        }
-        
-        .form-text {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .checkbox-group input[type="checkbox"] {
-            width: auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
-        
-        .btn:hover {
-            background: #2980b9;
-        }
-        
-        .btn-success {
-            background: #27ae60;
-        }
-        
-        .btn-success:hover {
-            background: #229954;
-        }
-        
-        .btn-secondary {
-            background: #95a5a6;
-        }
-        
-        .btn-secondary:hover {
-            background: #7f8c8d;
-        }
-        
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        
-        .alert {
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        
-        .alert-danger {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .alert ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-        
-        .alert ul li {
-            margin-bottom: 5px;
-        }
-    </style>
+    
+    <!-- Link to our reusable CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
+    <div class="container form-container">
+        <!-- Page Header -->
+        <div class="page-header">
             <div class="breadcrumb">
                 <a href="/subjects">Subjects</a> / Add New
             </div>
-            <h1><?= htmlspecialchars($title) ?></h1>
+            <h1 class="page-title"><?= htmlspecialchars($title) ?></h1>
         </div>
 
         <!-- Error Messages -->
         <?php if (!empty($errors)): ?>
             <div class="alert alert-danger">
                 <strong>Please fix the following errors:</strong>
-                <ul>
+                <ul style="margin: 10px 0 0 0; padding-left: 20px;">
                     <?php foreach ($errors as $error): ?>
                         <li><?= htmlspecialchars($error) ?></li>
                     <?php endforeach; ?>
@@ -191,10 +32,10 @@
         <?php endif; ?>
 
         <!-- Create Form -->
-        <div class="card">
+        <div class="card-form">
             <form method="POST" action="/subjects/store">
                 <div class="form-group">
-                    <label for="SubjectName" class="required">Subject Name</label>
+                    <label for="SubjectName" class="form-label required">Subject Name</label>
                     <input 
                         type="text" 
                         id="SubjectName" 
@@ -209,7 +50,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="SubjectShortName">Subject Short Name</label>
+                    <label for="SubjectShortName" class="form-label">Subject Short Name</label>
                     <input 
                         type="text" 
                         id="SubjectShortName" 
@@ -223,7 +64,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="SubjectCode" class="required">Subject Code</label>
+                    <label for="SubjectCode" class="form-label required">Subject Code</label>
                     <input 
                         type="text" 
                         id="SubjectCode" 
@@ -244,9 +85,10 @@
                             id="IsActive" 
                             name="IsActive" 
                             value="1"
+                            class="form-checkbox"
                             <?= (!isset($old['IsActive']) || $old['IsActive']) ? 'checked' : '' ?>
                         >
-                        <label for="IsActive">Active</label>
+                        <label for="IsActive" class="form-label">Active</label>
                     </div>
                     <div class="form-text">Check to make this subject active and available for use.</div>
                 </div>

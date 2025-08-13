@@ -1,0 +1,156 @@
+/* public/assets/css/forms.css */
+
+/* ===========================================
+   FORM-SPECIFIC STYLES
+   =========================================== */
+
+/* Container adjustments for forms */
+.form-container {
+    max-width: 800px;
+}
+
+/* Breadcrumb navigation */
+.breadcrumb {
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.breadcrumb a {
+    color: #3182ce;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Enhanced form controls */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.form-control.error {
+    border-color: #e53e3e;
+}
+
+/* Form helper text */
+.form-text {
+    font-size: 12px;
+    color: #718096;
+    margin-top: 5px;
+}
+
+/* Required field indicator */
+.form-label.required::after {
+    content: " *";
+    color: #e53e3e;
+}
+
+/* Checkbox groups */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0;
+}
+
+/* Button groups */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Form cards */
+.card-form {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+/* ===========================================
+   FORM ENHANCEMENTS
+   =========================================== */
+
+/* Better focus states */
+.form-control:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Loading state for buttons */
+.btn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.btn.loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error field states */
+.form-control.success {
+    border-color: #38a169;
+}
+
+.form-control.success:focus {
+    border-color: #38a169;
+    box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.1);
+}
+
+/* Improved error states */
+.form-control.error {
+    border-color: #e53e3e;
+    background-color: #fed7d7;
+}
+
+.form-control.error:focus {
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+/* Form section dividers */
+.form-section {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
