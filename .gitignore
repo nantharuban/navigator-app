@@ -1,0 +1,28 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# PHP/Composer (if you add later)
+vendor/
+
+# Node (if you add later)
+node_modules/
+
+# Env & secrets
+.env
+config/config.php
+
+# App runtime
+storage/logs/
+storage/sessions/
+storage/uploads/
+
+# Optional: keep empty dirs
+storage/logs/.gitkeep
+storage/sessions/.gitkeep
+storage/uploads/.gitkeep
+
+# Misc
+*.log
